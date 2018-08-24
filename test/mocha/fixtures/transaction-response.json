@@ -1,0 +1,29 @@
+{
+  "resourceType": "Bundle",
+  "id": "2e6ea115-2ae0-4544-a3dd-971f71b616d5",
+  "type": "transaction-response",
+  "link": [
+    {
+      "relation": "self",
+      "url": "http://lhc-docker.nlm.nih.gov:8080/baseDstu3"
+    }
+  ],
+  "entry": [
+    {
+      "response": {
+        "status": "201 Created",
+        "location": "Questionnaire/179173/_history/1",
+        "etag": "1",
+        "lastModified": "2018-03-07T21:58:03.679+00:00"
+      }
+    },
+    {
+      "response": {
+        "status": "201 Created",
+        "location": "QuestionnaireResponse/179174/_history/1",
+        "etag": "1",
+        "lastModified": "2018-03-07T21:58:03.713+00:00"
+      }
+    }
+  ]
+}
