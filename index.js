@@ -5,6 +5,4 @@
  *
  */
 
-var firebaseFhir = require('./src');
-
-module.exports.firebaseFhirMiddleware = firebaseFhir;
+module.exports = require('./src');

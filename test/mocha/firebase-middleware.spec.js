@@ -10,7 +10,7 @@ let dummyData = require('./fixtures/dummyData');
 
 var mkFhir = require('fhir.js');
 var _firebaseFhir = require('../../src/firebase-middleware');
-var firebaseFhirAPI = require('../../').firebaseFhirMiddleware;
+var firebaseFhirAPI = require('../../');
 
 var app = require('express')();
 var bodyParser = require('body-parser');
