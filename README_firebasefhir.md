@@ -27,7 +27,7 @@ only tested with basic authentication protocol).
 ##### Server side code snippet ...
 ```javascript
 
-var firebaseFhirMW = require('lforms-util').firebaseFhirMiddleware;
+var firebaseFhirMW = require('lforms-firebase-fhir');
 
 var app = require('express')();
 
