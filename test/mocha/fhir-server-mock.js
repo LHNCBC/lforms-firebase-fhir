@@ -11,7 +11,7 @@ var nock = require('nock');
  * what http values are passed to intended server (url).
  *
  *
- * @param url - The url of the backend http server to intercept the calls.
+ * @param url - The url for which calls should be intercepted.
  * @returns {object} - Returns nock object. Once instantiated, it intercepts all
  *   http calls and returns response object with properties of notable http request
  *   parameters, namely http method, uri, requestBody, and nodejs request object.

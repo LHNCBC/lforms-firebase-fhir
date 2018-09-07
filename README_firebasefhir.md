@@ -1,10 +1,10 @@
 # firebaseFhirMiddleware
 This is an express style middleware to mount on an express server 
-application. The middleware acts as an intermediary to a backend internal FHIR server to a front end
+application. The middleware acts as an intermediary to a backend internal FHIR server for a front end
 firebase web application. In addition to providing user authentication functionality,
 if the user creates a fhir resource on the server, it stores resource ids in a firebase database 
-associated with user account. Currently only Questionnaire and QuestionnaireResponse 
-resources are supported to store the ids. 
+associated with user account. Currently, storing IDs is only supported for Questionnaire and 
+QuestionnaireResponse resources. 
 
 * The client is expected to be a firebase application. For details see <https://firebase.google.com>.
 
@@ -63,7 +63,7 @@ var fhirClientConfig = {
 // For details on how to use fhir.js package, see https://github.com/FHIR/fhir.js
 var client = mkFhir(fhirClientConfig);
 
-  // Optionally to specify third party FHIR server.
+// Optionally to specify third party FHIR server.
 fhirClientConfig.headers = {
   'x-target-fhir-endpoint': 'http://hapi.fhir.org/baseDstu3/',
   'x-target-fhir-server-authorization': 'Basic XXXXXXXXXXX' // Set a valid authorization

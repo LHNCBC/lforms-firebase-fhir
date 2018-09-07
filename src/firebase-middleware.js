@@ -147,7 +147,7 @@ module.exports = function(firebaseAdmin) {
   function firebaseExecute (method, firebaseReference, resource) {
 
     var firebaseFn = null;
-    var data = null; // Used for set/update.
+    var data = null; // Used for get/set/update.
     switch (method) {
       case 'get':
         firebaseFn = firebaseReference.once;
@@ -212,7 +212,7 @@ module.exports = function(firebaseAdmin) {
    * Do firebase transaction with a call back.
    *
    * @param fbDatabaseRef - Firebase database reference object.
-   * @param callback - Call back to update the data at reference location. The call back is given the current
+   * @param callback - The callback to update the data at reference location. The call back is given the current
    *                   snapshot of the data. The caller may modify it and return the object. To abort the
    *                   changes, caller could return null;
    * @returns {*|void|Promise<{committed: boolean; snapshot: admin.database.DataSnapshot | null}>|IDBTransaction}
@@ -245,7 +245,7 @@ module.exports = function(firebaseAdmin) {
       fhirRequestBundle.entry.forEach(function(entry, index){
         var location = null;
         // If a resource is created on the server, read the id and type from the response,
-        // otherwise read it from request url.
+        // otherwise read it from request url. 201 = created.
         if(fhirResponseBundle.entry[index].response.status.startsWith('201')) {
           location = fhirResponseBundle.entry[index].response.location;
         }
