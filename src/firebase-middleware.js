@@ -363,7 +363,7 @@ module.exports = function(firebaseAdmin) {
 
 
     /**
-     * Proxy response decorator to update firebase after delete operation on fhir server
+     * Proxy response decorator to update firebase after transaction operation on fhir server
      *
      * @param proxyRes - Represents response from target server (FHIR server)
      * @param proxyResData - Represents response data from target server
