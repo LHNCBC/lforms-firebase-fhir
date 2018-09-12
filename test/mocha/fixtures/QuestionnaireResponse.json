@@ -1,0 +1,337 @@
+{
+  "id": "1",
+  "resourceType": "QuestionnaireResponse",
+  "identifier": {
+    "system": "http://loinc.org",
+    "value": "54127-6"
+  },
+  "subject": {
+    "reference": "Patient/2e27c71e-30c8-4ceb-8c1c-5641e066c0a4"
+  },
+  "status": "completed",
+  "authored": "2018-02-20T15:20:28-05:00",
+  "questionnaire": {
+    "reference": "Questionnaire/1"
+  },
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-response"
+    ]
+  },
+  "item": [
+    {
+      "linkId": "/54126-8",
+      "text": "My health history",
+      "item": [
+        {
+          "linkId": "/54126-8/54125-0",
+          "text": "Name",
+          "answer": [
+            {
+              "valueString": "John Greenholt"
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54131-8",
+          "text": "Gender",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA3-6",
+                "display": "Female"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/21112-8",
+          "text": "Birth Date",
+          "answer": [
+            {
+              "valueDateTime": "1921-04-26T00:00:00-04:00"
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54132-6",
+          "text": "Twin",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54128-4",
+          "text": "Adopted",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54135-9",
+          "text": "Parents related",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/8302-2",
+          "text": "Body height",
+          "answer": [
+            {
+              "valueQuantity": {
+                "value": 65,
+                "unit": "[in_i]",
+                "system": "http://unitsofmeasure.org",
+                "code": "[in_i]"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/29463-7",
+          "text": "Weight",
+          "answer": [
+            {
+              "valueQuantity": {
+                "value": 150,
+                "unit": "kg",
+                "system": "http://unitsofmeasure.org",
+                "code": "kg"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54134-2",
+          "text": "Race",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA4457-3",
+                "display": "White"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54133-4",
+          "text": "Ethnicity",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA10607-2",
+                "display": "Unknown/No answer"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54126-8/54137-5",
+          "text": "Diseases history panel",
+          "item": [
+            {
+              "linkId": "/54126-8/54137-5/54140-9",
+              "text": "History of diseases",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://loinc.org",
+                    "code": "10180",
+                    "display": "Diabetes - type 2 (adult, non-insulin-independent)"
+                  }
+                }
+              ]
+            },
+            {
+              "linkId": "/54126-8/54137-5/54130-0",
+              "text": "Age range at onset of disease",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://loinc.org",
+                    "code": "LA10399-6",
+                    "display": "50-59"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/54114-4",
+      "text": "Family member health history",
+      "item": [
+        {
+          "linkId": "/54114-4/54136-7",
+          "text": "Relationship to patient",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA10426-7",
+                "display": "Son"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54138-3",
+          "text": "Name",
+          "answer": [
+            {
+              "valueString": "John Doe"
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54123-5",
+          "text": "Gender",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA2-8",
+                "display": "Male"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54139-1",
+          "text": "Living?",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA33-6",
+                "display": "Yes"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54121-9",
+          "text": "Twin",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54122-7",
+          "text": "Adopted",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54119-3",
+          "text": "Race",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA4457-3",
+                "display": "White"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54120-1",
+          "text": "Ethnicity",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA10607-2",
+                "display": "Unknown/No answer"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54118-5",
+          "text": "Parents related",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA32-8",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/54114-4/54117-7",
+          "text": "Diseases history panel",
+          "item": [
+            {
+              "linkId": "/54114-4/54117-7/54116-9",
+              "text": "History of diseases",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://loinc.org",
+                    "code": "10180",
+                    "display": "Diabetes - type 2 (adult, non-insulin-independent)"
+                  }
+                }
+              ]
+            },
+            {
+              "linkId": "/54114-4/54117-7/54115-1",
+              "text": "Age range at onset of disease",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://loinc.org",
+                    "code": "LA10398-8",
+                    "display": "40-49"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
