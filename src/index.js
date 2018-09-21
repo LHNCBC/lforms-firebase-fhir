@@ -120,7 +120,6 @@ function initializeRouter(options) {
     };
   };
 
-  var firebaseActions = firebaseMW(options.firebaseAdmin);
 
   var router = express.Router();
 // These are direct pass through to target
@@ -133,33 +132,37 @@ function initializeRouter(options) {
   router.get('/:_type/_history', sendToProxy());
   router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/_history', sendToProxy());
 
-// The following requests are intercepted for authentication.
-  router.use(firebaseActions.verifyUser);
+  // If firebase is used
+  if(options.firebaseAdmin) {
+    // The following requests are intercepted for authentication.
+    var firebaseActions = firebaseMW(options.firebaseAdmin);
+    router.use(firebaseActions.verifyUser);
 
-// 'FHIR operations'
-  router.post('/([\$]):name', sendToProxy());
-  router.post('/:_type/([\$]):name', sendToProxy());
-  router.post('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/([\$]):name', sendToProxy());
-  router.get('/([\$]):name', sendToProxy());
-  router.get('/:_type/([\$]):name', sendToProxy());
-  router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/([\$]):name', sendToProxy());
+    // 'FHIR operations'
+    router.post('/([\$]):name', sendToProxy());
+    router.post('/:_type/([\$]):name', sendToProxy());
+    router.post('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/([\$]):name', sendToProxy());
+    router.get('/([\$]):name', sendToProxy());
+    router.get('/:_type/([\$]):name', sendToProxy());
+    router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/([\$]):name', sendToProxy());
 
-// FHIR search
-  router.post('/:_type/_search', firebaseActions.search, sendToProxy());
-  router.get('/:_type', firebaseActions.search, sendToProxy());
-  router.get('/', firebaseActions.search, sendToProxy());
+    // FHIR search
+    router.post('/:_type/_search', firebaseActions.search, sendToProxy());
+    router.get('/:_type', firebaseActions.search, sendToProxy());
+    router.get('/', firebaseActions.search, sendToProxy());
 
-// FHIR read
-  router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', sendToProxy()); // read
-  router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/_history/:vid([a-zA-Z0-9\\.\\-]{1,64})', sendToProxy()); // vread
+    // FHIR read
+    router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', sendToProxy()); // read
+    router.get('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})/_history/:vid([a-zA-Z0-9\\.\\-]{1,64})', sendToProxy()); // vread
 
-  router.post('/', sendToProxy(firebaseActions.transactionResponse));  // Transaction
+    router.post('/', sendToProxy(firebaseActions.transactionResponse));  // Transaction
 
-  router.post('/:_type', sendToProxy(firebaseActions.create)); // Create
+    router.post('/:_type', sendToProxy(firebaseActions.create)); // Create
 
-  router.delete('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.delete)); // Delete
-  router.put('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.update)); // Update
-  router.patch('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.update)); // Patch
+    router.delete('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.delete)); // Delete
+    router.put('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.update)); // Update
+    router.patch('/:_type/:_id([a-zA-Z0-9\\.\\-]{1,64})', firebaseActions.checkResourceOwner, sendToProxy(firebaseActions.update)); // Patch
+  }
   router.use(sendToProxy()); // Let FHIR handle all other requests?
 
   return router;
@@ -174,8 +177,8 @@ function initializeRouter(options) {
  */
 module.exports = function (options) {
 
-  // At minimum firebaseAdmin and defaultFhirUrl are required.
-  if(!options || !options.firebaseAdmin || !options.defaultFhirUrl) {
+  // At minimum and defaultFhirUrl are required.
+  if(!options || !options.defaultFhirUrl) {
     return null;
   }
 
