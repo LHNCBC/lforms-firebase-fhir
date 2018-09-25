@@ -8,30 +8,6 @@ for Biomedical Communications (LHNCBC), a research and development division
 of the U.S. National Library of Medicine (NLM), with the permission and based
 on the copyrighted content of the Regenstrief Institute.
 
-This material may contain content from LOINC &#174; (http://loinc.org). The
-LOINC table, LOINC codes, LOINC panels and forms file, LOINC linguistic variants
-file, LOINC/RSNA Radiology Playbook, and LOINC/IEEE Medical Device Code Mapping
-Table are copyright &#169; 1995-2016, Regenstrief Institute, Inc. and the
-Logical Observation Identifiers Names and Codes (LOINC) Committee and is
-available at no cost under the license at http://loinc.org/terms-of-use.
-LOINC &#174; is a registered United States trademark of Regenstrief Institute, Inc.
-
-If LOINC content is included, this software is distributed under the conditions
-set forth at https://loinc.org/terms-of-use and the following terms and conditions.
-
-If this product includes all or a portion of the UCUM table, UCUM codes, and
-UCUM definitions or is derived from it, it is subject to a license from
-Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table,
-UCUM codes, UCUM definitions also is subject to this license, a copy of which is
-available at http://unitsofmeasure.org. The current complete UCUM table, UCUM
-Specification are available for download at http://unitsofmeasure.org. The UCUM
-table and UCUM codes are copyright &#169; 1995-2009, Regenstrief Institute, Inc.
-and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
-
-If UCUM content is included, this software is distributed under the conditions
-set forth at http://unitsofmeasure.org/trac/wiki/TermsOfUse and the following
-terms and conditions.
-
 The following terms and conditions are based on the BSD open-source license.
 
 If publishing research that used this software, please include a citation that
