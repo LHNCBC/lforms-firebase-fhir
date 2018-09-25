@@ -5,8 +5,7 @@ Licensing and Copyright Notice and Terms of Use
 Owner Notice: This software (including any associated website-service or
 downloadable source (code) was developed by the Lister Hill National Center
 for Biomedical Communications (LHNCBC), a research and development division
-of the U.S. National Library of Medicine (NLM), with the permission and based
-on the copyrighted content of the Regenstrief Institute.
+of the U.S. National Library of Medicine (NLM).
 
 The following terms and conditions are based on the BSD open-source license.
 
@@ -39,8 +38,7 @@ IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
-THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE
-PROVIDED "AS IS." ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED, INCLUDING,
+ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED, INCLUDING,
 BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
 PARTICULAR PURPOSE.
 
