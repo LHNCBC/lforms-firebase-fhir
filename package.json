@@ -1,6 +1,6 @@
 {
   "name": "lforms-firebase-fhir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a utilty packages for LForms projects",
   "main": "index.js",
   "dependencies": {
@@ -9,21 +9,19 @@
     "file-stream-rotator": "0.0.7"
   },
   "devDependencies": {
-    "bower": "^1.8.2",
     "chai": "^3.5.0",
-    "express-request-mock": "^2.0.0",
+    "express-request-mock": "^2.0.2",
     "fhir.js": "github:akanduru/fhir.js",
-    "firebase-admin": "^5.9.1",
-    "firebase-admin-mock": "0.0.8",
+    "firebase-admin": "^7.0.0",
+    "firebase-admin-mock": "0.0.10",
     "grunt": "^1.0.0",
-    "grunt-cli": "^1.2.0",
+    "grunt-cli": "^1.3.2",
     "grunt-env": "^0.4.4",
-    "grunt-mocha-test": "^0.12.7",
-    "grunt-nsp": "^2.3.1",
-    "jasmine-spec-reporter": "^2.4.0",
+    "grunt-mocha-test": "^0.13.2",
+    "jasmine-spec-reporter": "^3.3.0",
     "jit-grunt": "^0.10.0",
     "mocha": "^4.0.0",
-    "nock": "^9.1.4",
+    "nock": "^10.0.6",
     "sinon": "^4.1.3"
   },
   "engines": {

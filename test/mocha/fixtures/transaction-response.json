@@ -5,7 +5,7 @@
   "link": [
     {
       "relation": "self",
-      "url": "http://lhc-docker.nlm.nih.gov:8080/baseDstu3"
+      "url": "http://hapi.fhir.org/baseDstu3"
     }
   ],
   "entry": [
