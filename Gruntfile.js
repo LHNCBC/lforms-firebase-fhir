@@ -20,11 +20,6 @@ module.exports = function(grunt) {
       }
     },
 
-    nsp: {
-      package: grunt.file.readJSON('./package.json'),
-      shrinkwrap: grunt.file.readJSON('./package-lock.json')
-    },
-
     env: {
       test: {
         NODE_ENV: 'test'
@@ -35,8 +30,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', function(target) {
     return grunt.task.run([
       'env:test',
-      'mochaTest',
-      'nsp'
+      'mochaTest'
     ]);
   });
   grunt.registerTask('default', 'test');
