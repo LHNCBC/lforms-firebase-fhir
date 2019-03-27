@@ -1,6 +1,6 @@
 {
   "name": "lforms-firebase-fhir",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a utilty packages for LForms projects",
   "main": "index.js",
   "dependencies": {
