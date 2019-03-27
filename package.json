@@ -15,7 +15,6 @@
     "firebase-admin": "^7.0.0",
     "firebase-admin-mock": "0.0.10",
     "jasmine-spec-reporter": "^3.3.0",
-    "jit-grunt": "^0.10.0",
     "mocha": "^4.0.0",
     "nock": "^10.0.6",
     "sinon": "^4.1.3"

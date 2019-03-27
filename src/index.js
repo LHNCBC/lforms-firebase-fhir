@@ -116,7 +116,7 @@ function initializeRouter(options) {
 
     return function (req, res, next) {
       let url = new URL(res.locals.fhirEndpoint);
-      (proxy(url.origin, opts)(req, res));
+      (proxy(url.origin, opts)(req, res, next));
     };
   };
 

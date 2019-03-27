@@ -33,7 +33,7 @@ describe('Test firebase-fhir-middleware api', function() {
   var admin, firebaseFhirOpts, _firebaseActions;
 
   // START firebase admin mock setup.
-  var adminInitStub, adminAuthStub, verifyIdTokenStub, adminDatabaseStub, refStub, updateStub, removeStub;
+  var verifyIdTokenStub, refStub, updateStub, removeStub;
   var onceStubUserResourceIds, onceStubUsers;
   var users = 'user-resources';
   var patients = 'patient-resources';
@@ -48,14 +48,14 @@ describe('Test firebase-fhir-middleware api', function() {
 
     admin =  require('firebase-admin');
 
-    adminInitStub = sandbox1.stub(admin, 'initializeApp');
+    sandbox1.stub(admin, 'initializeApp');
     verifyIdTokenStub = sandbox1.stub();
     verifyIdTokenStub.withArgs('dummyBearerToken1').returns(Promise.resolve({uid: 'dummyUserToken1'}));
     verifyIdTokenStub.withArgs('dummyBearerToken2').returns(Promise.resolve({uid: 'dummyUserToken2'}));
     let invalidPrm = Promise.reject('Invalid token');
     invalidPrm.catch(()=>{});
     verifyIdTokenStub.withArgs('invalidBearerToken').returns(invalidPrm);
-    adminAuthStub = sandbox1.stub(admin, 'auth').get(function getterFn(){
+    sandbox1.stub(admin, 'auth').get(function getterFn(){
       return function () {
         return {verifyIdToken: verifyIdTokenStub};
       };
@@ -74,7 +74,7 @@ describe('Test firebase-fhir-middleware api', function() {
     refStub.withArgs(dummyUserDefFhirResource1).returns({once: onceStubUserResourceIds, update: updateStub, remove: removeStub});
     refStub.withArgs(userResources).returns({once: onceStubUserResourceIds, update: updateStub, remove: removeStub});
     refStub.withArgs(users).returns({once: onceStubUsers, update: updateStub, remove: removeStub});
-    adminDatabaseStub = sandbox1.stub(admin, 'database').get(function getterFn(){
+    sandbox1.stub(admin, 'database').get(function getterFn(){
       return function () {
         return {ref: refStub};
       };
