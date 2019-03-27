@@ -52,7 +52,9 @@ describe('Test firebase-fhir-middleware api', function() {
     verifyIdTokenStub = sandbox1.stub();
     verifyIdTokenStub.withArgs('dummyBearerToken1').returns(Promise.resolve({uid: 'dummyUserToken1'}));
     verifyIdTokenStub.withArgs('dummyBearerToken2').returns(Promise.resolve({uid: 'dummyUserToken2'}));
-    verifyIdTokenStub.withArgs('invalidBearerToken').returns(Promise.reject('Invalid token'));
+    let invalidPrm = Promise.reject('Invalid token');
+    invalidPrm.catch(()=>{});
+    verifyIdTokenStub.withArgs('invalidBearerToken').returns(invalidPrm);
     adminAuthStub = sandbox1.stub(admin, 'auth').get(function getterFn(){
       return function () {
         return {verifyIdToken: verifyIdTokenStub};
@@ -118,7 +120,9 @@ describe('Test firebase-fhir-middleware api', function() {
     notFoundOnceStub.returns(Promise.resolve({val: function() {}}));
     foundOnceStub.returns(Promise.resolve({val: function() {return  dummyData.QData1}}));
     let errorOnceStub = sandbox2.stub();
-    errorOnceStub.returns(Promise.reject("Fake error"));
+    let fakePrm = Promise.reject("Fake error");
+    fakePrm.catch(()=>{});
+    errorOnceStub.returns(fakePrm);
 
     before(function () {
       sandbox2.stub(admin, 'database').get(function getterFn(){
@@ -149,7 +153,6 @@ describe('Test firebase-fhir-middleware api', function() {
     it('should return 401 error on invalid user', function(){
       let req = {headers: {authorization: "bearer invalidBearerToken"}};
       return requestMock(_firebaseActions.verifyUser, req).then(({res}) => {
-        notFoundOnceStub.ca
         expect(res.statusCode).to.equal(401);
         expect(res._getData().error).to.equal('Invalid token');
       });
