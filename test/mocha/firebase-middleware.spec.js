@@ -33,7 +33,7 @@ describe('Test firebase-fhir-middleware api', function() {
   var admin, firebaseFhirOpts, _firebaseActions;
 
   // START firebase admin mock setup.
-  var adminInitStub, adminAuthStub, verifyIdTokenStub, adminDatabaseStub, refStub, updateStub, removeStub;
+  var verifyIdTokenStub, refStub, updateStub, removeStub;
   var onceStubUserResourceIds, onceStubUsers;
   var users = 'user-resources';
   var patients = 'patient-resources';
@@ -48,12 +48,14 @@ describe('Test firebase-fhir-middleware api', function() {
 
     admin =  require('firebase-admin');
 
-    adminInitStub = sandbox1.stub(admin, 'initializeApp');
+    sandbox1.stub(admin, 'initializeApp');
     verifyIdTokenStub = sandbox1.stub();
     verifyIdTokenStub.withArgs('dummyBearerToken1').returns(Promise.resolve({uid: 'dummyUserToken1'}));
     verifyIdTokenStub.withArgs('dummyBearerToken2').returns(Promise.resolve({uid: 'dummyUserToken2'}));
-    verifyIdTokenStub.withArgs('invalidBearerToken').returns(Promise.reject('Invalid token'));
-    adminAuthStub = sandbox1.stub(admin, 'auth').get(function getterFn(){
+    let invalidPrm = Promise.reject('Invalid token');
+    invalidPrm.catch(()=>{});
+    verifyIdTokenStub.withArgs('invalidBearerToken').returns(invalidPrm);
+    sandbox1.stub(admin, 'auth').get(function getterFn(){
       return function () {
         return {verifyIdToken: verifyIdTokenStub};
       };
@@ -72,7 +74,7 @@ describe('Test firebase-fhir-middleware api', function() {
     refStub.withArgs(dummyUserDefFhirResource1).returns({once: onceStubUserResourceIds, update: updateStub, remove: removeStub});
     refStub.withArgs(userResources).returns({once: onceStubUserResourceIds, update: updateStub, remove: removeStub});
     refStub.withArgs(users).returns({once: onceStubUsers, update: updateStub, remove: removeStub});
-    adminDatabaseStub = sandbox1.stub(admin, 'database').get(function getterFn(){
+    sandbox1.stub(admin, 'database').get(function getterFn(){
       return function () {
         return {ref: refStub};
       };
@@ -118,7 +120,9 @@ describe('Test firebase-fhir-middleware api', function() {
     notFoundOnceStub.returns(Promise.resolve({val: function() {}}));
     foundOnceStub.returns(Promise.resolve({val: function() {return  dummyData.QData1}}));
     let errorOnceStub = sandbox2.stub();
-    errorOnceStub.returns(Promise.reject("Fake error"));
+    let fakePrm = Promise.reject("Fake error");
+    fakePrm.catch(()=>{});
+    errorOnceStub.returns(fakePrm);
 
     before(function () {
       sandbox2.stub(admin, 'database').get(function getterFn(){
@@ -149,7 +153,6 @@ describe('Test firebase-fhir-middleware api', function() {
     it('should return 401 error on invalid user', function(){
       let req = {headers: {authorization: "bearer invalidBearerToken"}};
       return requestMock(_firebaseActions.verifyUser, req).then(({res}) => {
-        notFoundOnceStub.ca
         expect(res.statusCode).to.equal(401);
         expect(res._getData().error).to.equal('Invalid token');
       });

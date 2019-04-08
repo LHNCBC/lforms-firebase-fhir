@@ -114,9 +114,9 @@ function initializeRouter(options) {
       // opts.userResDecorator = proxyResponseDecorator;
     }
 
-    return function (req, res) {
+    return function (req, res, next) {
       let url = new URL(res.locals.fhirEndpoint);
-      (proxy(url.origin, opts)(req, res));
+      (proxy(url.origin, opts)(req, res, next));
     };
   };
 
