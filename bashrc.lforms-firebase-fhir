@@ -6,7 +6,7 @@
 # of it.
 
 # Use the globally installed node and its modules
-LFORMS_NODE=node-v10.15.2-linux-x64
+LFORMS_NODE=node-v14
 # Set path
 PATH=~/${LFORMS_NODE}/bin:/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/etc
 

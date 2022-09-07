@@ -3,6 +3,11 @@
 This log documents the significant changes for each release.
 This project follows [Semantic Versioning](http://semver.org/).
 
+## [1.0.3] 2022-09-07
+## Fixed.
+The package no longer supports firebase interface. However, the firebase-admin is updated to
+satisfy npm audit report.
+
 ## [1.0.2] 2019-03-27
 ### Fixed 
 - Removed grunt and fixed unhandled exception warnings in mocha tests.
